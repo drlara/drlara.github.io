@@ -11,17 +11,19 @@ function displayQ3Options(){
     for (let i of q3Options) {
 
         let inputElement = document.createElement("input");
+        console.log(inputElement.toString());
         inputElement.type = "radio";
+
         inputElement.name = "q3";
         inputElement.value = i;
-        console.log(inputElement);
+      
 
         let labelElement = document.createElement("label");
         labelElement.textContent = i;
         labelElement.prepend(inputElement);
 
         document.querySelector("#q3Options").append(labelElement);
-        
+
     }
 
 
