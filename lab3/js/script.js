@@ -1,14 +1,16 @@
+//event listeners
 document.querySelector("button").addEventListener("click", gradeQuiz);
-
-//<label><input type="radio" name="q1" value="font-color"> font-color </label>
-
 
 shuffleQ1Choices();
 function shuffleQ1Choices(){
 
-    let q1Choices = ["font-color", "color", "text-color", "color-text"];
+    let q1Choices = ["font-color", "color", "text-color", "fontColor"];
+    q1Choices = _.shuffle(q1Choices);
+    console.log(q1Choices);
 
-    for (let i of q1Choices) {
+// <label> <input type="radio" name="q1" value="fontColor">  font-color</label>
+
+    for ( let i of q1Choices) {
         let radioElement = document.createElement("input");
         radioElement.type = "radio";
         radioElement.name = "q1";
@@ -16,21 +18,26 @@ function shuffleQ1Choices(){
 
         let labelElement = document.createElement("label");
         labelElement.textContent = i;
-
+        
         labelElement.prepend(radioElement);
-        labelElement.prepend(" ");
 
         document.querySelector("#q1ChoicesDiv").append(labelElement);
-
-         console.log(labelElement); 
+        
+        console.log(labelElement);
     } //for
+
 
 }
 
 
 function gradeQuiz(){
+  let answerQ1 = "color";
 
-    let q1userAnswer = document.querySelector("input[name=q1]:checked").value;
-    alert("grading quiz.. "  + q1userAnswer);
+  let userAnswer1 = document.querySelector("input[name=q1]:checked").value;
+  alert("Grading quiz..." + userAnswer1);
 
+  if (userAnswer1 == answerQ1) {
+    //display "Right!"
+  }
 }
+
